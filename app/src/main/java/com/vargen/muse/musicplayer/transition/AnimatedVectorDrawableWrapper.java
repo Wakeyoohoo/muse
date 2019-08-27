@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.transition;
+package com.vargen.muse.musicplayer.transition;
 
 import android.animation.Animator;
 import android.animation.TimeInterpolator;

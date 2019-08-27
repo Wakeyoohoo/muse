@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.music;
+package com.vargen.muse.musicplayer.music;
 
-import com.sample.andremion.musicplayer.R;
+import com.vargen.muse.musicplayer.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.transition;
+package com.vargen.muse.musicplayer.transition;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -26,8 +26,8 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.ViewGroup;
 
-import com.sample.andremion.musicplayer.R;
-import com.sample.andremion.musicplayer.view.ProgressView;
+import com.vargen.muse.musicplayer.R;
+import com.vargen.muse.musicplayer.view.ProgressView;
 
 public class ProgressViewTransition extends Transition {
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.activities;
+package com.vargen.muse.musicplayer.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,9 +26,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.sample.andremion.musicplayer.R;
-import com.sample.andremion.musicplayer.music.MusicContent;
-import com.sample.andremion.musicplayer.view.RecyclerViewAdapter;
+import com.vargen.muse.musicplayer.R;
+import com.vargen.muse.musicplayer.music.MusicContent;
+import com.vargen.muse.musicplayer.view.RecyclerViewAdapter;
 
 public class MainActivity extends PlayerActivity {
 

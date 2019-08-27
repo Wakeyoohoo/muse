@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.activities;
+package com.vargen.muse.musicplayer.activities;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -30,9 +30,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateUtils;
 import android.widget.TextView;
 
-import com.sample.andremion.musicplayer.R;
-import com.sample.andremion.musicplayer.music.PlayerService;
-import com.sample.andremion.musicplayer.view.ProgressView;
+import com.vargen.muse.musicplayer.R;
+import com.vargen.muse.musicplayer.music.PlayerService;
+import com.vargen.muse.musicplayer.view.ProgressView;
 
 public abstract class PlayerActivity extends AppCompatActivity {
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.view;
+package com.vargen.muse.musicplayer.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
@@ -24,8 +24,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sample.andremion.musicplayer.R;
-import com.sample.andremion.musicplayer.music.MusicContent.MusicItem;
+import com.vargen.muse.musicplayer.R;
+import com.vargen.muse.musicplayer.music.MusicContent.MusicItem;
 
 import java.util.List;
 

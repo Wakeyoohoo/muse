@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.transition;
+package com.vargen.muse.musicplayer.transition;
 
 import android.animation.Animator;
 import android.content.Context;
@@ -26,7 +26,7 @@ import android.transition.TransitionValues;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 
-import com.sample.andremion.musicplayer.R;
+import com.vargen.muse.musicplayer.R;
 
 public class PlayButtonTransition extends Transition {
 

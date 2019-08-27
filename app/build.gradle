@@ -27,5 +27,7 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$APPCOMPAT_VERSION"
     implementation "com.android.support:percent:$APPCOMPAT_VERSION"
     implementation "com.github.andremion:musiccoverview:$MUSICCOVERVIEW_VERSION"
+    implementation 'com.orhanobut:logger:2.2.0'
+
     testImplementation 'junit:junit:4.12'
 }

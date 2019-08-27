@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.view;
+package com.vargen.muse.musicplayer.view;
 
 import android.transition.Transition;
 

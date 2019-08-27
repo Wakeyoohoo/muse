@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.music;
+package com.vargen.muse.musicplayer.music;
 
 import android.app.Service;
 import android.content.Intent;

@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.sample.andremion.musicplayer.activities;
+package com.vargen.muse.musicplayer.activities;
 
 import android.os.Bundle;
 import android.transition.Transition;
 import android.view.View;
 
 import com.andremion.music.MusicCoverView;
-import com.sample.andremion.musicplayer.R;
-import com.sample.andremion.musicplayer.view.TransitionAdapter;
+import com.vargen.muse.musicplayer.R;
+import com.vargen.muse.musicplayer.view.TransitionAdapter;
 
 public class DetailActivity extends PlayerActivity {
 
