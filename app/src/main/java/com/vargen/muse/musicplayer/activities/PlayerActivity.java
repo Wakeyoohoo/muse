@@ -26,6 +26,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.annotation.PluralsRes;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateUtils;
 import android.widget.TextView;
@@ -34,6 +35,9 @@ import com.vargen.muse.musicplayer.R;
 import com.vargen.muse.musicplayer.music.PlayerService;
 import com.vargen.muse.musicplayer.view.ProgressView;
 
+import java.lang.ref.WeakReference;
+import java.util.WeakHashMap;
+
 public abstract class PlayerActivity extends AppCompatActivity {
 
     private PlayerService mService;
@@ -41,15 +45,37 @@ public abstract class PlayerActivity extends AppCompatActivity {
     private TextView mTimeView;
     private TextView mDurationView;
     private ProgressView mProgressView;
-    private final Handler mUpdateProgressHandler = new Handler() {
+
+    private static class UpdateProgressHandler extends Handler {
+        private final WeakReference<PlayerService> mPlayerService;
+        private final WeakReference<PlayerActivity> mPlayerActivity;
+
+        public UpdateProgressHandler(PlayerService service, PlayerActivity activity) {
+            mPlayerService = new WeakReference<>(service);
+            mPlayerActivity = new WeakReference<>(activity);
+        }
+
         @Override
         public void handleMessage(Message msg) {
-            final int position = mService.getPosition();
-            final int duration = mService.getDuration();
-            onUpdateProgress(position, duration);
+            final int position = mPlayerService.get().getPosition();
+            final int duration = mPlayerService.get().getDuration();
+            mPlayerActivity.get().onUpdateProgress(position, duration);
             sendEmptyMessageDelayed(0, DateUtils.SECOND_IN_MILLIS);
         }
-    };
+    }
+
+    // Handler隐式的持有它的外部类的引用，这个引用会一直存在直到这个消息被处理，可能会产生内存泄漏
+
+//    private final Handler mUpdateProgressHandler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            final int position = mService.getPosition();
+//            final int duration = mService.getDuration();
+//            onUpdateProgress(position, duration);
+//            sendEmptyMessageDelayed(0, DateUtils.SECOND_IN_MILLIS);
+//        }
+//    };
+
     /**
      * Defines callbacks for service binding, passed to bindService()
      */
@@ -70,6 +96,8 @@ public abstract class PlayerActivity extends AppCompatActivity {
             onUnbind();
         }
     };
+
+    private UpdateProgressHandler mUpdateProgressHandler = new UpdateProgressHandler(mService, this);
 
     private void onUpdateProgress(int position, int duration) {
         if (mTimeView != null) {
@@ -94,6 +122,10 @@ public abstract class PlayerActivity extends AppCompatActivity {
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
+        initView();
+    }
+
+    private void initView() {
         mTimeView = (TextView) findViewById(R.id.time);
         mDurationView = (TextView) findViewById(R.id.duration);
         mProgressView = (ProgressView) findViewById(R.id.progress);
@@ -105,6 +137,9 @@ public abstract class PlayerActivity extends AppCompatActivity {
         if (mBound) {
             unbindService(mConnection);
             mBound = false;
+        }
+        if (mUpdateProgressHandler != null) {
+            mUpdateProgressHandler.removeCallbacksAndMessages(null);
         }
         super.onDestroy();
     }
